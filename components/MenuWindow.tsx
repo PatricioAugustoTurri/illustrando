@@ -22,10 +22,10 @@ function MenuWindow() {
                         <NavigationMenuTrigger className={`cursor-pointer bg-transparent text-lg customColorFlamingo ${caprasimo.className}`}>Shop</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <div className="flex flex-col gap-2 px-8 py-2 justify-center items-center text-center text-lg">
-                                <p className="cursor-pointer" onClick={() => router.push('/stampe')}>Stampe</p>
-                                <p className="cursor-pointer" onClick={() => router.push('/illustrazione-personalizzata')}>Illustrazione personalizzata</p>
-                                <p className="cursor-pointer" onClick={() => router.push('/ritratto-illustrato')}>Ritratto illustrato</p>
-                                <p className="cursor-pointer" onClick={() => router.push('/legno')}>Legno</p>
+                                <p className="cursor-pointer" onClick={() => router.push('/category/stampe')}>Stampe</p>
+                                <p className="cursor-pointer" onClick={() => router.push('/category/illustrazione-personalizzata')}>Illustrazione personalizzata</p>
+                                <p className="cursor-pointer" onClick={() => router.push('/category/ritratto-illustrato')}>Ritratto illustrato</p>
+                                <p className="cursor-pointer" onClick={() => router.push('/category/legno')}>Legno</p>
                             </div>
                         </NavigationMenuContent>
                     </NavigationMenuItem>

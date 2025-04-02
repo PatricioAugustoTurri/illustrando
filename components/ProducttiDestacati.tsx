@@ -44,7 +44,7 @@ function ProducttiDestacati() {
                                                         icon={<Heart size={20}/>}
                                                         className="text-gray-600"/>
                                                         <IconButton
-                                                        onclick={()=>{{router.push(`/${product.category.slug}/${product.slug}`)}}}
+                                                        onclick={()=>{{router.push(`/category/${product.category.slug}/${product.slug}`)}}}
                                                         icon={<Expand size={20}/>}
                                                         className="text-gray-600"
                                                         />

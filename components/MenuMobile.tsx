@@ -25,7 +25,7 @@ function MenuMobile() {
             ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="flex flex-col p-10 gap-10">   
                     <Link href={"/"} className={`hover:font-bold text-xl text-white ${caprasimo.className}`} onClick={() => { setDrawerOpen(false) }}>Home</Link>
-                    <Link href={"/stampe"} className={`hover:font-bold text-xl text-white ${caprasimo.className}`} onClick={() => { setDrawerOpen(false) }}>Shop</Link>
+                    <Link href={"/category"} className={`hover:font-bold text-xl text-white ${caprasimo.className}`} onClick={() => { setDrawerOpen(false) }}>Shop</Link>
                     <Link href={"/about"} className={`hover:font-bold text-xl text-white ${caprasimo.className}`} onClick={() => { setDrawerOpen(false) }}>About</Link>
                     <Link href={"/contact"} className={`hover:font-bold text-xl text-white ${caprasimo.className}`} onClick={() => { setDrawerOpen(false) }}>Contatto</Link>
                 </div>

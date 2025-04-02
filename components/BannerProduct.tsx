@@ -14,6 +14,7 @@ export const caprasimo = Caprasimo({
 function BannerProduct() {
 
     const { result, loading }:Response = useGetProductsCategory("ritratto-illustrato")
+    console.log
 
     return (
         <div className="mt-8 text-center max-w-6xl mx-auto">
@@ -24,7 +25,7 @@ function BannerProduct() {
                     return(
                        <Link 
                        key={product.id} 
-                       href={`/${product.category.slug}/${product.slug}`}
+                       href={`/category/${product.category.slug}/${product.subCategoryName.slug}`}
                        >
                             <img 
                             src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.image[0].url}`} 

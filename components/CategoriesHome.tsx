@@ -4,6 +4,7 @@ import { CategoryType } from "@/types/CategoryType";
 import { Response } from "@/types/Response";
 import { Caprasimo } from "next/font/google";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const caprasimo = Caprasimo({
     weight: ["400"],
@@ -13,10 +14,11 @@ export const caprasimo = Caprasimo({
 
 function CategoriesHome() {
     const { result, loading }: Response = useGetCategory()
+    const router = useRouter()
 
     return (
         <div className="max-w-6xl mx-auto py-4 sm:py-16 sm:px-24">
-            <h3 className={`${caprasimo.className} px-6 pb-4 text-3xl sm:pb-8`}>Tutte le categorie</h3>
+            <h3 className={`${caprasimo.className} px-6 pb-4 text-3xl sm:pb-8 cursor-pointer`} onClick={()=>router.push("/category")}>Tutte le categorie</h3>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {!loading && result !== undefined && (
                     result?.map((category: CategoryType) => {
@@ -24,7 +26,7 @@ function CategoriesHome() {
                         return (
                             <Link
                                 key={id}
-                                href={`${slug}`}
+                                href={`/category/${slug}`}
                                 className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                             >
                                 <img
