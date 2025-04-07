@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
-export function useGetProductsCategory(slug:string | string[]) {
+export function useGetProduct (slug:string) {
 
-    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[category][slug][$eq]=${slug}&populate=*`
+    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[slug][$eq]=${slug}&populate=*`
     const [result, setResult] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
@@ -10,7 +10,7 @@ export function useGetProductsCategory(slug:string | string[]) {
     useEffect (()=>{
         (async()=>{
             try{
-                const res = await fetch(url)
+                const res = await fetch (url)
                 const json = await res.json()
                 setResult(json.data)
                 setLoading(false)
@@ -19,7 +19,7 @@ export function useGetProductsCategory(slug:string | string[]) {
                 setLoading(false)
             }
         })()
-    },[url])
+    }, [url])
 
-    return {result, loading, error}
+    return { result, loading, error }
 }

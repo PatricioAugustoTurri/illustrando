@@ -30,7 +30,7 @@ function ProducttiDestacati() {
                             return (
                                 <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/3 group">
                                     <div className="p-2">
-                                        <Card className="border py-4 border-gray-200 shadow-none">
+                                        <Card className="border py-2 border-gray-200 shadow-none hover:border-red-300 transition duration-200 ease-in-out">
                                             <CardContent className="relative flex items-center justify-center">
                                                 <img
                                                     src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.image[0].url}`}
@@ -51,8 +51,8 @@ function ProducttiDestacati() {
                                                     </div>
                                                 </div>
                                             </CardContent>
-                                            <div className="flex justify-between gap-4 px-8">
-                                                <h3 className="text-xs">{product.productName}</h3>
+                                            <div className="flex justify-between px-6 -py-4">
+                                                <h3 className="text-base">{product.category.nameCategory}</h3>
                                             </div>
                                         </Card>
                                     </div>

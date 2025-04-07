@@ -22,9 +22,10 @@ export default function TutteCategorie() {
             <div className="grid grid-cols-2 md:grid-cols-4 mt-8 gap-4">
                 {result !== null && (
                     result?.map((cat: CategoryType) => {
+                        const { id, nameCategory, slug, image } = cat
                         return (
-                            <div key={cat.id} onClick={()=>router.push(`/categoty/${cat.slug}`)} className="cursor-pointer">
-                                <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${cat.image.url}`} alt={cat.nameCategory} className="aspect-square object-cover hover:scale-95 hover:shadow-2xl rounded-xl transition-all duration-300" />
+                            <div key={cat.id} onClick={() => router.push(`/category/${cat.slug}`)} className="cursor-pointer">
+                                <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${cat.image[0].url}`} alt={cat.nameCategory} className="aspect-square object-cover hover:scale-95 hover:shadow-2xl rounded-xl transition-all duration-300" />
                                 <h2 className={`${caprasimo.className} text-xs my-2 text-center md:text-start`}>{cat.nameCategory}</h2>
                             </div>
                         )

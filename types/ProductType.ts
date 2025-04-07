@@ -3,9 +3,9 @@ export type ProductType = {
     id: number,
     productName: string,
     slug: string,
-    image: {
+    image: [{
         url: string
-    }[],
+    }],
     description: string,
     price: number,
     category: {
@@ -18,13 +18,7 @@ export type ProductType = {
         },
     }
     size: string,
-    subCategoryName:{
-        subCategoryName: string,
-        slug: string,
-        id: number,
-        description: string,
-        images:{
-            url: string
-        }[]
-    }
+    portada:[{
+        url: string
+    }]
 }
