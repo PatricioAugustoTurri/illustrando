@@ -5,7 +5,7 @@ import { HeartOff, X } from "lucide-react"
 import { Caprasimo } from "next/font/google"
 import { useRouter } from "next/navigation"
 
-export const caprasimo = Caprasimo({
+const caprasimo = Caprasimo({
     weight: ["400"],
     style: ["normal"],
     subsets: ["latin", "latin-ext"],
