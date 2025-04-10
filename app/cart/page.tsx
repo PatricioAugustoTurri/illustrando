@@ -10,7 +10,7 @@ import { loadStripe } from "@stripe/stripe-js"
 import { makePaymentsRequest } from "@/api/payments"
 import { Caprasimo } from "next/font/google"
 
-export const caprasimo = Caprasimo({
+const caprasimo = Caprasimo({
     weight: ["400"],
     style: ["normal"],
     subsets: ["latin", "latin-ext"]
