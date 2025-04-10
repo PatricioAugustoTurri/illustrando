@@ -60,7 +60,6 @@ function Navbar() {
                         <Heart strokeWidth={1} />
                         <span className="text-xs">{favorite.length}</span>
                     </div>}
-                <UserRoundMinus strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/profile")} />
             </div>
         </div>
     )

@@ -99,7 +99,7 @@ function CartPage() {
                             <Button className="w-full cursor-pointer" onClick={buyStripe}>Comprar</Button>
                         </div>
                     </div>
-                    <p className="text-end my-2 text-red-500/70 cursor-pointer text-xs" onClick={() => removeAll()}>Svuota carrello</p>
+                    {items.length !== 0 && <p className="text-end my-2 text-red-500/70 cursor-pointer text-xs" onClick={() => removeAll()}>Svuota carrello</p>}
                 </div>
             </div>
         </div>
