@@ -4,12 +4,13 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import NextTopLoader from "nextjs-toploader";
 
 export const roboto = Roboto({
-  weight:["400","500","600","700"],
-  style:["normal","italic"],
-  subsets:["latin","latin-ext"],
-}) 
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin", "latin-ext"],
+})
 
 
 export const metadata: Metadata = {
@@ -27,6 +28,17 @@ export default function RootLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
+        <NextTopLoader
+            color="#2299DD"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={true}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #2299DD, 0 0 5px #2299DD"
+          />
         <header>
           <Navbar />
         </header>
