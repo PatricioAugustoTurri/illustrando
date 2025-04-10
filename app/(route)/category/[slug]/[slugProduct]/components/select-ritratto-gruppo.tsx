@@ -32,9 +32,13 @@ function SelectRitrattoGruppo(props: SelectRitrattoGruppoProps) {
         }
     }
 
+    const selectSelected = (value: string) => {setIsFormat(false), setValueFormat(value)}
+
+    const selectSelected2 = (value: string) => {setIsPrezzo(false), setValuePrezzo(value)}
+
     return (
         <div>
-            <Select onValueChange={(value) => { setIsFormat(false), setValueFormat(value) }}>
+            <Select onValueChange={(value) => selectSelected(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Formato" />
                     <SelectContent>
@@ -54,7 +58,7 @@ function SelectRitrattoGruppo(props: SelectRitrattoGruppoProps) {
                 </SelectTrigger>
             </Select>
             {isFormat && <p className="text-red-500 text-xs -my-2">Per favore seleziona un formato</p>}
-            <Select onValueChange={(value) => { setIsPrezzo(false), setValuePrezzo(value) }}>
+            <Select onValueChange={(value) => selectSelected2(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Prezzo" />
                     <SelectContent>

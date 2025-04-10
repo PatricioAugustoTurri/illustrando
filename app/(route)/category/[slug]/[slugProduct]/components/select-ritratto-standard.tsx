@@ -26,22 +26,21 @@ function SelectRitrattoStandard(props: SelectRitrattoStandardProps) {
     const allCarrello = (product: ProductType) => {
         if (product.size === null) {
             setSelectSize(true)
-            console.log("no size")
         }
         if (product.price === null) {
             setSelectPrice(true)
-            console.log("no price")
         }
         if (product.size !== null && product.price !== null) {
-            console.log(product)
-            /*Funcion para el carrito*/
             addItem(product)
         }
     }
+    const selectSelected = (value: string) => {product.size = value, setSelectSize(false)}
+
+    const selectSelected2 = (value: string) => {priceSelected(value), setSelectPrice(false)}
 
     return (
         <div>
-            <Select onValueChange={(value) => { product.size = value, setSelectSize(false) }}>
+            <Select onValueChange={(value) => selectSelected(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Tipologia" />
                     <SelectContent>
@@ -61,7 +60,7 @@ function SelectRitrattoStandard(props: SelectRitrattoStandardProps) {
                 </SelectTrigger>
             </Select>
             {selectSize && <p className="text-red-500 text-xs -my-2">Per favore seleziona la Tipologia</p>}
-            <Select onValueChange={(value) => { priceSelected(value), setSelectPrice(false) }}>
+            <Select onValueChange={(value) => selectSelected2(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Formato" />
                     <SelectContent>

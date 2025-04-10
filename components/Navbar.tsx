@@ -1,5 +1,5 @@
 "use client"
-import { Heart, HeartOff, ShoppingBasketIcon, ShoppingCart, User, UserRoundMinus } from "lucide-react";
+import { Heart, HeartOff, ShoppingBasketIcon, ShoppingCart, UserRoundMinus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import MenuWindow from "./MenuWindow";
 import MenuMobile from "./MenuMobile";

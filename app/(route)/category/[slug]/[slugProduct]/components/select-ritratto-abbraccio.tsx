@@ -31,9 +31,19 @@ function SelectRitrattoAbbraccio(props: RitrattoAbbaccioProps) {
             addItem(product)
         }
     }
+    const selectSelected = (value: string) => {
+        setValueSize(value)
+        setIsSize(false)
+    }
+
+    const selectSelected2 = (value: string) => {
+        setValueFormat(value)
+        setIsFormat(false) 
+    }
+
     return (
         <div>
-            <Select onValueChange={(value) => { setValueSize(value), setIsSize(false) }}>
+            <Select onValueChange={(value) => { selectSelected(value) }}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Tipologia" />
                     <SelectContent>
@@ -53,7 +63,7 @@ function SelectRitrattoAbbraccio(props: RitrattoAbbaccioProps) {
                 </SelectTrigger>
             </Select>
             {isSize && <p className="text-red-500 text-xs -my-2">Per favore seleziona la dimensione</p>}
-            <Select onValueChange={(value) => { setValueFormat(value), setIsFormat(false) }}>
+            <Select onValueChange={(value) => selectSelected2(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Formato" />
                     <SelectContent>
