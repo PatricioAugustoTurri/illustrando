@@ -28,7 +28,7 @@ function SelectRitrattoAbbraccio(props: RitrattoAbbaccioProps) {
         if (valueSize !== "" && valueFormat !== "") {
             product.size = valueSize
             product.price = parseInt(valueFormat)
-            addItem(product)
+            addItem(item)
         }
     }
     const selectSelected = (value: string) => {

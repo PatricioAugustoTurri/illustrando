@@ -35,9 +35,15 @@ function SelectViaggio(props: SelectViaggioProps) {
         }
     }
 
-    const selectSelected = (value: string) => {product.size = value, setSelectSize(false)}
+    const selectSelected = (value: string) => {
+        product.size = value
+        setSelectSize(false)
+    }
 
-    const selectSelected2 = (value: string) => {priceSelected(value), setSelectPrice(false)}
+    const selectSelected2 = (value: string) => {
+        priceSelected(value)
+        setSelectPrice(false)
+    }
 
     return (
         <div>

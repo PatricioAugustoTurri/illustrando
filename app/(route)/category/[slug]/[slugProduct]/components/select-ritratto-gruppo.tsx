@@ -32,9 +32,15 @@ function SelectRitrattoGruppo(props: SelectRitrattoGruppoProps) {
         }
     }
 
-    const selectSelected = (value: string) => {setIsFormat(false), setValueFormat(value)}
+    const selectSelected = (value: string) => {
+        setIsFormat(false)
+        setValueFormat(value)
+    }
 
-    const selectSelected2 = (value: string) => {setIsPrezzo(false), setValuePrezzo(value)}
+    const selectSelected2 = (value: string) => {
+        setIsPrezzo(false)
+        setValuePrezzo(value)
+    }
 
     return (
         <div>
