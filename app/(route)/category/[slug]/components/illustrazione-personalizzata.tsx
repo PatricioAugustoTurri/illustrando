@@ -1,4 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { ImageType } from "@/types/images"
 import { ProductType } from "@/types/ProductType"
 import { Caprasimo } from "next/font/google"
 import { useRouter } from "next/navigation"
@@ -15,23 +16,24 @@ const caprasimo = Caprasimo({
 export default function IllustrazioniPersonalizzate(props: ProductCardProps) {
     const { product } = props
     const router = useRouter()
+    console.log(product)
 
     return (
         <div className={`${caprasimo.className} max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10`}>
             <p className="text-3xl text-center">Illustrazione Personalizzata</p>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mt-8 px-6">
                 {product?.map((item: ProductType) => {
-                    const { portada } = item
+                    const { portada,id } = item
                     return (
-                        <div key={item.id} className="cursor-pointer">
+                        <div key={id} className="cursor-pointer">
                             <Carousel className="mb-2">
                                 <CarouselContent>
-                                    {portada?.map((itema: any) => {
+                                    {portada.map((i) => {
                                         return(
-                                            <CarouselItem key={itema.id} className="relative">
+                                            <CarouselItem className="relative" key={i.url}>
                                                 <img 
-                                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${itema.url}`} 
-                                                alt={item.productName} className="aspect-square object-cover hover:scale-105 transition duration-700 ease-in-out border border-2"
+                                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${i.url}`} 
+                                                alt={item.productName} className="aspect-square object-cover hover:scale-105 transition duration-700 ease-in-out border"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />
                                             </CarouselItem>
