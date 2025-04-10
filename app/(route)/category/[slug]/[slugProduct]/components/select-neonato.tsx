@@ -15,6 +15,11 @@ function SelectNeonato(props: SelectNeonatoProps) {
     const { addItem } = useCart()
     const {addFavorite} = useFavorites ()
 
+    const selectSelected = (value: string) => {
+        product.size = value;
+        setSelectSize(false) 
+    }
+
     const allCarrello = (product: ProductType) => {
         if (product.size === null) {
             setSelectSize(true)
@@ -28,7 +33,7 @@ function SelectNeonato(props: SelectNeonatoProps) {
     }
     return (
         <div>
-            <Select onValueChange={(value) => { product.size = value, setSelectSize(false) }}>
+            <Select onValueChange={(value)=>{selectSelected(value)}}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Tipologia" />
                     <SelectContent>
