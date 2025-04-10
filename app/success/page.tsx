@@ -4,7 +4,7 @@ import { Caprasimo } from "next/font/google"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-export const capa = Caprasimo ({
+const capa = Caprasimo ({
    weight:["400"],
    style:["normal"],
    subsets:["latin"]
