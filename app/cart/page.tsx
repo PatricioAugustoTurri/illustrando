@@ -13,7 +13,7 @@ import { Caprasimo } from "next/font/google"
 const caprasimo = Caprasimo({
     weight: ["400"],
     style: ["normal"],
-    subsets: ["latin", "latin-ext"]
+    subsets: ["latin"]
 })
 
 function CartPage() {
