@@ -10,38 +10,38 @@ export type IllustazioneStandardProps = {
 }
 function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
     const { product } = props
-    const [valueSize, setValueSize] = useState("")
-    const [valueFormat, setValueFormat] = useState("")
-    const [selectSize, setSelectSize] = useState(false)
-    const [selectFormat, setSelectFormat] = useState(false)
-    const [newSelect, setNewSelect] = useState(false)
+    const [valueSize, setValuesize] = useState("")
+    const [valueFormat, setValueformat] = useState("")
+    const [selectSize, setSelectsize] = useState(false)
+    const [selectFormat, setSelectformat] = useState(false)
+    const [newSelect, setNewselect] = useState(false)
     const { addItem } = useCart()
     const {addFavorite} = useFavorites ()
 
     const valuta = (value: string) => {
         if (value === "1-3") {
-            setValueFormat("100")
-            setNewSelect(false)
+            setValueformat("100")
+            setNewselect(false)
         } else if (value === "4-6") {
-            setValueFormat("150")
-            setNewSelect(false)
+            setValueformat("150")
+            setNewselect(false)
         } else if (value === "+") {
-            setNewSelect(true)
-            setValueFormat("")
+            setNewselect(true)
+            setValueformat("")
         }
     }
 
     const newValuta = (value: string) => {
-        setValueFormat(value)
+        setValueformat(value)
     }
 
 
     const allCarrello = (product: ProductType) => {
         if (valueSize === "") {
-            setSelectSize(true)
+            setSelectsize(true)
         }
         if (valueFormat === "") {
-            setSelectFormat(true)
+            setSelectformat(true)
         }
         if (valueFormat !== "" && valueSize !== "") {
             product.size = valueSize
@@ -52,7 +52,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
 
     return (
         <div>
-            <Select onValueChange={(value) => { setValueSize(value), setSelectSize(false) }}>
+            <Select onValueChange={(value) => { setValuesize(value), setSelectsize(false) }}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Tipologia" />
                     <SelectContent>
@@ -72,7 +72,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
                 </SelectTrigger>
             </Select>
             {selectSize && <p className="text-red-500 text-xs -my-2">Per favore seleziona la Tipologia</p>}
-            <Select onValueChange={(value) => { setValueFormat(value), setSelectFormat(false), valuta(value) }}>
+            <Select onValueChange={(value) => { setValueformat(value), setSelectformat(false), valuta(value) }}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Formato" />
                     <SelectContent>
@@ -87,7 +87,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
             </Select>
             {selectFormat && <p className="text-red-500 text-xs -my-2">Per favore seleziona un formato</p>}
             {newSelect && (
-                <Select onValueChange={(value) => { setSelectFormat(false), newValuta(value) }}>
+                <Select onValueChange={(value) => { setSelectformat(false), newValuta(value) }}>
                     <SelectTrigger className="w-full my-4">
                         <SelectValue placeholder="Scegli il numero di persone" />
                         <SelectContent>

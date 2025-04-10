@@ -5,10 +5,10 @@ import { useGetProductsCategory } from "@/api/getProductsCategory";
 import { Response } from "@/types/Response";
 import IllustrazioniPersonalizzate from "./components/illustrazione-personalizzata";
 
-function categoryPage() {
-    const params = useParams()
+function CategoryPage() {
+    const params = useParams ()
     const { slug } = params
-    const { result, loading }: Response = useGetProductsCategory(slug as string)
+    const { result }: Response = useGetProductsCategory(slug as string)
 
 
     if (slug === "ritratto-illustrato") {
@@ -39,4 +39,4 @@ function categoryPage() {
     }
 }
 
-export default categoryPage;
+export default CategoryPage;
