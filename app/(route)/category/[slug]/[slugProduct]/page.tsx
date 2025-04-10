@@ -4,24 +4,36 @@ import { Response } from "@/types/Response"
 import { useParams } from "next/navigation"
 import TuttiProduct from "./components/tutti-product"
 import { ProductType } from "@/types/ProductType"
+import TuttiProductMobile from "./components/tutti-product-mobile"
 
 function ProductPage() {
     const params = useParams()
     const { slugProduct } = params
-    console.log(slugProduct)
-    const { error, loading, result }: Response = useGetProduct(slugProduct as string)
-    console.log(result)
-
+    const { loading, result }: Response = useGetProduct(slugProduct as string)
+   
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {loading && <p>Caricamento...</p>}
-            {result?.map((product:ProductType)=>{
-                return (
-                    <div key={product.id}>
-                       <TuttiProduct product={product} />
-                    </div>
-                )
-            })}
+            <div className="block sm:hidden">
+                {loading && <p>Caricamento...</p>}
+                {result?.map((product:ProductType)=>{
+                    return (
+                        <div key={product.id}>
+                            <TuttiProductMobile product={product} />
+                        </div>
+                    )
+                })}
+            </div>
+            <div className="hidden sm:block">
+                {loading && <p>Caricamento...</p>}
+                {result?.map((product: ProductType) => {
+                    return (
+                        <div key={product.id}>
+                            <TuttiProduct product={product} />
+                        </div>
+                    )
+                })}
+            </div>
+
         </div>
     )
 }

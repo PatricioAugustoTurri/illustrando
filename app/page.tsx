@@ -1,4 +1,3 @@
-
 import BannerProduct from "@/components/BannerProduct";
 import CarouselPhotos from "@/components/CarouselPhotos";
 import CategoriesHome from "@/components/CategoriesHome";

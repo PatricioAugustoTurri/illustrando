@@ -8,6 +8,7 @@ import { Expand, Heart } from "lucide-react";
 import { Caprasimo } from "next/font/google";
 import { useRouter } from "next/navigation";
 import IconButton from "./icon-button";
+import { useFavorites } from "@/hooks/use-favorites";
 
 export const caprasimo = Caprasimo({
     weight: ["400"],
@@ -18,6 +19,7 @@ export const caprasimo = Caprasimo({
 function ProducttiDestacati() {
     const { result, loading }: Response = useGetDestacati()
     const router = useRouter()
+    const {addFavorite} = useFavorites ()
 
     return (
         <div className="w-full py-4 sm:py-8 sm:px-20 mx-auto">
@@ -40,7 +42,7 @@ function ProducttiDestacati() {
                                                 <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                                                     <div className="flex justify-center items-center gap-4">
                                                         <IconButton 
-                                                        onclick={()=>{}}
+                                                        onclick={()=>{addFavorite(product)}}
                                                         icon={<Heart size={20}/>}
                                                         className="text-gray-600"/>
                                                         <IconButton

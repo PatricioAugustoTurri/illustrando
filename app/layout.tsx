@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const roboto = Roboto({
   weight:["400","500","600","700"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         </header>
         <main className="mt-40 h-auto">
           {children}
+          <Toaster />
         </main>
         <footer>
           <Footer />

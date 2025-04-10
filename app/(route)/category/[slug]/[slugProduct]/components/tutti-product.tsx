@@ -1,6 +1,12 @@
 import { Separator } from "@/components/ui/separator"
 import { ProductType } from "@/types/ProductType"
 import { Caprasimo } from "next/font/google"
+import SelectViaggio from "./select-viaggio"
+import SelectNeonato from "./select-neonato"
+import SelectRitrattoGruppo from "./select-ritratto-gruppo"
+import SelectIllustrazioneStandard from "./select-illustrazione-standard"
+import SelectRitrattoAbbraccio from "./select-ritratto-abbraccio"
+import SelectRitrattoStandard from "./select-ritratto-standard"
 
 type ProductsProps = {
     product: ProductType
@@ -22,7 +28,7 @@ function TuttiProduct(props: ProductsProps) {
                         {product.image.map((item: any) => {
                             return (
                                 <div key={item.id} className="flex flex-col justify-start items-start p-1">
-                                    <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${item.url}`} alt={product.productName} className="w-[90%]" />
+                                    <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${item.url}`} alt={product.productName} className="w-[90%] object-cover" />
                                 </div>
                             )
                         })}
@@ -33,6 +39,13 @@ function TuttiProduct(props: ProductsProps) {
                         <h1 className={`${ca.className} text-3xl text-start`}>{product.productName}</h1>
                         <Separator className="my-4" />
                         <p>Aca va toda la descrpcion del producto, bien detallado</p>
+                        <Separator className="my-4" />
+                        {product.slug === "illustrazione-di-viaggio" && <SelectViaggio product={product}/>}
+                        {product.slug === "neonato" && <SelectNeonato product={product}/>}
+                        {product.slug === "ritratto-di-gruppo" && <SelectRitrattoGruppo product={product}/>}
+                        {product.slug === "illustrazione-standard" && <SelectIllustrazioneStandard product={product}/>}
+                        {product.slug === "ritratto-abbraccio" && <SelectRitrattoAbbraccio product={product}/>}
+                        {product.slug === "ritratto-standard" && <SelectRitrattoStandard product={product}/>}
                     </div>
                 </div>
             </div>

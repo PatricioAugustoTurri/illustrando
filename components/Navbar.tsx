@@ -1,10 +1,12 @@
 "use client"
-import { Heart, ShoppingCart, User } from "lucide-react";
+import { Heart, HeartOff, ShoppingBasketIcon, ShoppingCart, User, UserRoundMinus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import MenuWindow from "./MenuWindow";
 import MenuMobile from "./MenuMobile";
 import { Vibur } from "next/font/google";
 import { useEffect, useState } from "react";
+import useCart from "@/hooks/use-cart";
+import { useFavorites } from "@/hooks/use-favorites";
 
 export const bonbon = Vibur({
     weight: ["400"],
@@ -16,6 +18,8 @@ function Navbar() {
 
     const router = useRouter()
     const [shadow, setShadow] = useState(false)
+    const { items } = useCart()
+    const { favorite } = useFavorites()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,9 +48,19 @@ function Navbar() {
                 <MenuWindow />
             </div>
             <div className="flex gap-4 text-white">
-                <ShoppingCart strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/cart")} />
-                <Heart strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/favorites")} />
-                <User strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/profile")} />
+                {items.length === 0 ?
+                    <ShoppingCart strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/cart")} /> :
+                    <div className="flex items-center gap-0.5 cursor-pointer" onClick={() => router.push("/cart")} >
+                        <ShoppingBasketIcon strokeWidth={1} />
+                        <span className="text-xs">{items.length}</span>
+                    </div>}
+                {favorite.length === 0 ?
+                    <HeartOff strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/favorites")} /> :
+                    <div className="cursor-pointer flex items-center gap-0.5" onClick={() => router.push("/favorites")} >
+                        <Heart strokeWidth={1} />
+                        <span className="text-xs">{favorite.length}</span>
+                    </div>}
+                <UserRoundMinus strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/profile")} />
             </div>
         </div>
     )
