@@ -8,40 +8,41 @@ import { useState } from "react"
 export type IllustazioneStandardProps = {
     product: ProductType
 }
+
 function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
     const { product } = props
-    const [valueSize, setValuesize] = useState("")
-    const [valueFormat, setValueformat] = useState("")
-    const [selectSize, setSelectsize] = useState(false)
-    const [selectFormat, setSelectformat] = useState(false)
-    const [newSelect, setNewselect] = useState(false)
+    const [valueSize, setValueSize] = useState("")
+    const [valueFormat, setValueFormat] = useState("")
+    const [selectSize, setSelectSize] = useState(false)
+    const [selectFormat, setSelectFormat] = useState(false)
+    const [newSelect, setNewSelect] = useState(false)
     const { addItem } = useCart()
-    const {addFavorite} = useFavorites ()
+    const { addFavorite } = useFavorites()
 
     const valuta = (value: string) => {
         if (value === "1-3") {
-            setValueformat("100")
-            setNewselect(false)
+            setValueFormat("100")
+            setNewSelect(false)
         } else if (value === "4-6") {
-            setValueformat("150")
-            setNewselect(false)
+            setValueFormat("150")
+            setNewSelect(false)
         } else if (value === "+") {
-            setNewselect(true)
-            setValueformat("")
+            setNewSelect(true)
+            setValueFormat("")
         }
     }
 
     const newValuta = (value: string) => {
-        setValueformat(value)
+        setValueFormat(value)
     }
 
 
     const allCarrello = (product: ProductType) => {
         if (valueSize === "") {
-            setSelectsize(true)
+            setSelectSize(true)
         }
         if (valueFormat === "") {
-            setSelectformat(true)
+            setSelectFormat(true)
         }
         if (valueFormat !== "" && valueSize !== "") {
             product.size = valueSize
@@ -49,10 +50,25 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
             addItem(product)
         }
     }
+    const selectSelected = (value: string) => {
+        setValueSize(value)
+        setSelectSize(false)
+    }
+
+    const selectSelected2 = (value: string) => {
+        setValueFormat(value)
+        setSelectFormat(false)
+        valuta(value)
+    }
+
+    const selectSelected3 = (value: string) => {
+        setSelectFormat(false)
+        newValuta(value)
+    }
 
     return (
         <div>
-            <Select onValueChange={(value) => { setValuesize(value), setSelectsize(false) }}>
+            <Select onValueChange={(value) => selectSelected(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Tipologia" />
                     <SelectContent>
@@ -72,7 +88,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
                 </SelectTrigger>
             </Select>
             {selectSize && <p className="text-red-500 text-xs -my-2">Per favore seleziona la Tipologia</p>}
-            <Select onValueChange={(value) => { setValueformat(value), setSelectformat(false), valuta(value) }}>
+            <Select onValueChange={(value) => selectSelected2(value)}>
                 <SelectTrigger className="w-full my-4">
                     <SelectValue placeholder="Formato" />
                     <SelectContent>
@@ -87,7 +103,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
             </Select>
             {selectFormat && <p className="text-red-500 text-xs -my-2">Per favore seleziona un formato</p>}
             {newSelect && (
-                <Select onValueChange={(value) => { setSelectformat(false), newValuta(value) }}>
+                <Select onValueChange={(value) => selectSelected3(value)}>
                     <SelectTrigger className="w-full my-4">
                         <SelectValue placeholder="Scegli il numero di persone" />
                         <SelectContent>
@@ -118,7 +134,7 @@ function SelectIllustrazioneStandard(props: IllustazioneStandardProps) {
                     strokeWidth={1}
                     size={50}
                     className="transition duration-300 ease-in-out cursor-pointer hover:fill-black"
-                    onClick={() => console.log(addFavorite(product))}
+                    onClick={() => addFavorite(product)}
                 />
             </div>
         </div>

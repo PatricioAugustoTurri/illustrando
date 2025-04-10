@@ -77,7 +77,7 @@ function SelectRitrattoAbbraccio(props: RitrattoAbbaccioProps) {
                     strokeWidth={1}
                     size={50}
                     className="transition duration-300 ease-in-out cursor-pointer hover:fill-black"
-                    onClick={() => console.log(addFavorite(product))}
+                    onClick={() => addFavorite(product)}
                 />
             </div>
         </div>
