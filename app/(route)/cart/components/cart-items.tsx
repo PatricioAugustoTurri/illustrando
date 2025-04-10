@@ -5,7 +5,7 @@ interface CartItemsProps {
     product: ProductType
 }
 
-function CartITems (props: CartItemsProps) {
+function CartItems (props: CartItemsProps) {
     const { product } = props
     const router = useRouter()
     return (
@@ -20,4 +20,4 @@ function CartITems (props: CartItemsProps) {
     )
 }
 
-export default CartITems
+export default CartItems

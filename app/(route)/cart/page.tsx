@@ -3,12 +3,12 @@ import { Separator } from "@/components/ui/separator"
 import useCart from "@/hooks/use-cart"
 import { formatPrice } from "@/lib/formatPrice"
 import { MoveRight, ShoppingBag, SquareX } from "lucide-react"
-import { Caprasimo } from "next/font/google"
 import { useRouter } from "next/navigation"
-import CartITems from "./components/cart-items"
+import CartItems from "./components/cart-items"
 import { Button } from "@/components/ui/button"
 import { loadStripe } from "@stripe/stripe-js"
 import { makePaymentsRequest } from "@/api/payments"
+import { Caprasimo } from "next/font/google"
 
 export const caprasimo = Caprasimo({
     weight: ["400"],
@@ -21,8 +21,7 @@ function CartPage() {
     const router = useRouter()
     const prices = items.map((product) => product.price * product.cant);
     const totalPrice = prices.reduce((a, b) => a + b, 0)
-    const stripePromise = loadStripe (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "")
-    console.log(items)
+    const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "")
 
     const buyStripe = async () => {
         try {
@@ -30,9 +29,9 @@ function CartPage() {
             const res = await makePaymentsRequest.post("/api/orders", {
                 products: items
             })
-            
+
             await stripe?.redirectToCheckout({
-                sessionId: res.data.stripeSession.id                ,
+                sessionId: res.data.stripeSession.id,
             })
             removeAll()
         } catch (error) {
@@ -62,7 +61,7 @@ function CartPage() {
                             return (
                                 <div key={item.id} >
                                     <div className="flex justify-between">
-                                        <CartITems product={item} />
+                                        <CartItems product={item} />
                                         <div className="flex flex-col">
                                             <p className="md:text-2xl text-lg my-6">{item.productName}</p>
                                             <div className="flex gap-1 text-sm">
