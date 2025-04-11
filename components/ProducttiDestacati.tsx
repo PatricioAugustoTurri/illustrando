@@ -54,7 +54,7 @@ function ProducttiDestacati() {
                                                 </div>
                                             </CardContent>
                                             <div className="flex justify-between px-6 -py-4">
-                                                <h3 className="text-base">{product.category.nameCategory}</h3>
+                                                <h3 className="text-xs">{product.productName}</h3>
                                             </div>
                                         </Card>
                                     </div>

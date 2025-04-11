@@ -19,7 +19,7 @@ function MenuWindow() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className={`cursor-pointer bg-transparent text-lg customColorFlamingo  ${caprasimo.className}`}>Shop</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={`cursor-pointer bg-transparent text-lg customColorFlamingo  ${caprasimo.className}`} onClick={() =>router.push("/category")}>Shop</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <div className="flex flex-col gap-2 px-8 py-2 justify-center items-center text-center text-lg">
                                 <p className="cursor-pointer" onClick={() => router.push('/category/stampe')}>Stampe</p>

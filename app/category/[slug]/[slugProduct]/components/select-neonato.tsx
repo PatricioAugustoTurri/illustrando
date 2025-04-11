@@ -23,10 +23,8 @@ function SelectNeonato(props: SelectNeonatoProps) {
     const allCarrello = (product: ProductType) => {
         if (product.size === null) {
             setSelectSize(true)
-            console.log("no size")
         }
         if (product.size !== null && product.price !== null) {
-            console.log(product)
             /*Funcion para el carrito*/
             addItem(product)
         }

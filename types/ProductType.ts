@@ -10,7 +10,7 @@ export type ProductType = {
     price: number,
     category: {
         id: number,
-        nameCategory: string,
+        categoryName: string,
         slug: string,
         description: string,
         image: {

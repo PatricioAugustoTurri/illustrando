@@ -14,6 +14,7 @@ const caprasimo = Caprasimo({
 function FavoritesPage() {
     const { favorite, removeAllFavorites, removeFavorite } = useFavorites()
     const router = useRouter()
+    console.log(favorite)
 
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
@@ -44,7 +45,7 @@ function FavoritesPage() {
                                         onClick={() => { router.push(`/category/${item.category.slug}/${item.slug}`) }}
                                     />
                                     <h3 className="font-bold">{item.productName}</h3>
-                                    <h2 className="sm:block hidden">{item.category.nameCategory}</h2>
+                                    <h2 className="sm:block hidden">{item.category.categoryName}</h2>
                                     <X
                                         size={20}
                                         strokeWidth={2}

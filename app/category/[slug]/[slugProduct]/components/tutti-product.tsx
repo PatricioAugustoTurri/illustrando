@@ -38,7 +38,7 @@ function TuttiProduct(props: ProductsProps) {
                     <div className="px-10">
                         <h1 className={`${ca.className} text-3xl text-start`}>{product.productName}</h1>
                         <Separator className="my-4" />
-                        <p>Aca va toda la descrpcion del producto, bien detallado</p>
+                        <p>{product.description}</p>
                         <Separator className="my-4" />
                         {product.slug === "illustrazione-di-viaggio" && <SelectViaggio product={product}/>}
                         {product.slug === "neonato" && <SelectNeonato product={product}/>}

@@ -42,7 +42,7 @@ function TuttiProductMobile(props: ProductsProps) {
             </div>
             <Separator className="my-8 mx-2" />
             <h1 className={`${ca.className} text-2xl text-start mb-2`}>{productName}</h1>
-            <p className="text-base">aca va toda la descripcion bien detallada del producto.</p>
+            <p className="text-base">{product.description}</p>
             <Separator className="my-4" />
             {product.slug === "illustrazione-di-viaggio" && <SelectViaggio product={product} />}
             {product.slug === "neonato" && <SelectNeonato product={product} />}

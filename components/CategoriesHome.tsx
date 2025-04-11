@@ -22,7 +22,7 @@ function CategoriesHome() {
             <div className="grid gap-5 grid-cols-2 md:grid-cols-4">
                 {!loading && result !== undefined && (
                     result?.map((category: CategoryType) => {
-                        const { nameCategory, image, slug, id } = category
+                        const {portada, slug, id,categoryName } = category
                         return (
                             <Link
                                 key={id}
@@ -30,11 +30,11 @@ function CategoriesHome() {
                                 className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                             >
                                 <img
-                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image[0].url}`}
-                                    alt={category.nameCategory}
+                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${portada[0].url}`}
+                                    alt={categoryName}
                                     className="h-auto transition duration-300 ease-in-out rounded-lg hover:scale-110"
                                 />
-                                <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">{nameCategory}</p>
+                                <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">{categoryName}</p>
                             </Link>
                         )
                     })
