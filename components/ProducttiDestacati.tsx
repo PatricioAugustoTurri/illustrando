@@ -35,7 +35,7 @@ function ProducttiDestacati() {
                                         <Card className="border py-2 border-gray-200 shadow-none hover:border-red-300 transition duration-200 ease-in-out">
                                             <CardContent className="relative flex items-center justify-center">
                                                 <img
-                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.image[0].url}`}
+                                                    src={`${product.image[0].url}`}
                                                     alt={product.productName}
                                                     className="aspect-square rounded-sm object-cover"
                                                 />

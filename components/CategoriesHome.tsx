@@ -15,7 +15,7 @@ export const caprasimo = Caprasimo({
 function CategoriesHome() {
     const { result, loading }: Response = useGetCategory()
     const router = useRouter()
-
+console.log(result)
     return (
         <div className="max-w-6xl mx-auto py-4 px-4 sm:py-16 sm:px-12">
             <h3 className={`${caprasimo.className} px-6 pb-4 text-3xl sm:pb-8 cursor-pointer`} onClick={()=>router.push("/category")}>Tutte le categorie</h3>
@@ -30,7 +30,7 @@ function CategoriesHome() {
                                 className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                             >
                                 <img
-                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${portada[0].url}`}
+                                    src={`${portada[0].url}`}
                                     alt={categoryName}
                                     className="h-auto transition duration-300 ease-in-out rounded-lg hover:scale-110"
                                 />

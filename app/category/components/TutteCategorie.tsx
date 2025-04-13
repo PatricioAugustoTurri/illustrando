@@ -24,7 +24,7 @@ export default function TutteCategorie() {
                     result?.map((cat: CategoryType) => {
                         return (
                             <div key={cat.id} onClick={() => router.push(`/category/${cat.slug}`)} className="cursor-pointer">
-                                <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${cat.portada[0].url}`} alt={cat.categoryName} className="h-96 object-cover hover:scale-95 hover:shadow-2xl rounded-xl transition-all duration-300" />
+                                <img src={`${cat.portada[0].url}`} alt={cat.categoryName} className="h-96 object-cover hover:scale-95 hover:shadow-2xl rounded-xl transition-all duration-300" />
                                 <h2 className={`${caprasimo.className} text-xs my-2 text-center md:text-start`}>{cat.categoryName}</h2>
                             </div>
                         )

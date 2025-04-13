@@ -31,7 +31,7 @@ export default function IllustrazioniPersonalizzate(props: ProductCardProps) {
                                         return(
                                             <CarouselItem className="relative" key={i.url}>
                                                 <img 
-                                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${i.url}`} 
+                                                src={`${i.url}`} 
                                                 alt={item.productName} className="aspect-square object-cover hover:scale-105 transition duration-700 ease-in-out border"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />

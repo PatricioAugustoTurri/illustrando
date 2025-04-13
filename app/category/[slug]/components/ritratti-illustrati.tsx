@@ -30,7 +30,7 @@ function RitrattiIllustrati(props: ProductCardProps) {
                                         return(
                                             <CarouselItem key={itema.url} className="relative">
                                                 <img 
-                                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${itema.url}`} 
+                                                src={`${itema.url}`} 
                                                 alt={item.productName} className="w-full h-full object-cover hover:scale-105 transition duration-700 ease-in-out"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />

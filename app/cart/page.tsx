@@ -20,14 +20,15 @@ function CartPage() {
     const { removeAll, items, removeItem } = useCart()
     const router = useRouter()
     const prices = items.map((product) => product.price * product.cant);
-    const totalPrice = prices.reduce((a, b) => a + b, 0)
+    const totalPrice = prices.reduce((a, b) => a + b, 10)
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "")
 
     const buyStripe = async () => {
         try {
             const stripe = await stripePromise
             const res = await makePaymentsRequest.post("/api/orders", {
-                products: items
+                products: items,
+                price: totalPrice
             })
 
             await stripe?.redirectToCheckout({
@@ -89,7 +90,8 @@ function CartPage() {
                 </div>
                 <div className="max-w-xl py-4 sm:py-0">
                     <div className="p-6 rounded-lg bg-slate-100">
-                        <p className="mb-3 text-lg font-semibold">Order Sumary</p>
+                        <p className="mb-1 text-lg font-semibold">Order Sumary</p>
+                        <p className="mb-3 text-xs">Spedizione: {formatPrice(10)}</p>
                         <Separator />
                         <div className="flex justify-between gap-5 my-4">
                             <p>Order Total</p>

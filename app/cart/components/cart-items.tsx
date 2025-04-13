@@ -12,7 +12,7 @@ function CartItems (props: CartItemsProps) {
         <li className="flex py-6 border-b">
             <div onClick={() => router.push(`/category/${product.category.slug}/${product.slug}`)}>
                 <img
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.image[0].url}`}
+                    src={`${product.image[0].url}`}
                     alt={product.productName}
                     className="w-24 h-24 overflow-hidden rounded-sm sm:w-auto sm:h-32 object-cover cursor-pointer hover:scale-95 transition duration-700 ease-in-out" />
             </div>

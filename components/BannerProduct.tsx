@@ -24,7 +24,7 @@ function BannerProduct() {
                     const { category, slug, id, productName, portada } = product
                     return (
                         <Link href={`/category/${category.slug}/${slug}`} key={id}>
-                            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${portada[0].url}`} alt={productName} className="aspect-square object-cover rounded-lg hover:scale-95 transition duration-300 ease-in-out" />
+                            <img src={`${portada[0].url}`} alt={productName} className="aspect-square object-cover rounded-lg hover:scale-95 transition duration-300 ease-in-out" />
                             <div className="py-1 flex justify-between">
                                 <p className={`${caprasimo.className} text-xs`}>{productName}</p>
                             </div>

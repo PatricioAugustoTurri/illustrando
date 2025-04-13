@@ -31,7 +31,7 @@ function TuttiProductMobile(props: ProductsProps) {
                     return (
                         <div className="flex gap-2" key={item.url}>
                             <img
-                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${item.url}`}
+                                src={`${item.url}`}
                                 alt={productName}
                                 className="w-20 h-20 object-cover cursor-pointer"
                                 onClick={() => setFoto(item.url)}

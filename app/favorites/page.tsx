@@ -39,7 +39,7 @@ function FavoritesPage() {
                                     className="flex justify-between items-center hover:bg-gray-100 p-2 rounded-xl transition-all duration-500"
                                 >
                                     <img
-                                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${item.image[0].url}`}
+                                        src={`${item.image[0].url}`}
                                         alt={item.productName}
                                         className="w-20 h-20 rounded-xl object-cover cursor-pointer hover:scale-95 transition-all duration-500"
                                         onClick={() => { router.push(`/category/${item.category.slug}/${item.slug}`) }}

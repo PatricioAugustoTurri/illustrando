@@ -28,7 +28,7 @@ function TuttiProduct(props: ProductsProps) {
                         {product.image.map((item) => {
                             return (
                                 <div key={item.url} className="flex flex-col justify-start items-start p-1">
-                                    <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${item.url}`} alt={product.productName} className="w-[90%] object-cover" />
+                                    <img src={`${item.url}`} alt={product.productName} className="w-[90%] object-cover" />
                                 </div>
                             )
                         })}
