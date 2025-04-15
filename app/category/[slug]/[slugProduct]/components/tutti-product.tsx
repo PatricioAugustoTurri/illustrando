@@ -7,6 +7,7 @@ import SelectRitrattoGruppo from "./select-ritratto-gruppo"
 import SelectIllustrazioneStandard from "./select-illustrazione-standard"
 import SelectRitrattoAbbraccio from "./select-ritratto-abbraccio"
 import SelectRitrattoStandard from "./select-ritratto-standard"
+import { ImageType } from "@/types/images"
 
 type ProductsProps = {
     product: ProductType
@@ -19,16 +20,18 @@ const ca = Caprasimo({
 
 function TuttiProduct(props: ProductsProps) {
     const { product } = props
+    console.log(product)
 
     return (
         <div className="flex flex-col py-10">
             <div className="flex">
                 <div className="w-1/2 overflow-y-scroll">
                     <div className="h-[100vh]">
-                        {product.image.map((item) => {
+                        {product.image.map((item:ImageType) => {
+                            const { id, url } = item
                             return (
-                                <div key={item.url} className="flex flex-col justify-start items-start p-1">
-                                    <img src={`${item.url}`} alt={product.productName} className="w-[90%] object-cover" />
+                                <div key={id} className="flex flex-col justify-start items-start p-1">
+                                    <img src={`${url}`} alt={product.productName} className="w-[90%] object-cover" />
                                 </div>
                             )
                         })}

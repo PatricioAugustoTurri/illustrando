@@ -8,6 +8,7 @@ import SelectRitrattoGruppo from "./select-ritratto-gruppo"
 import SelectIllustrazioneStandard from "./select-illustrazione-standard"
 import SelectRitrattoAbbraccio from "./select-ritratto-abbraccio"
 import SelectRitrattoStandard from "./select-ritratto-standard"
+import { ImageType } from "@/types/images"
 
 type ProductsProps = {
     product: ProductType
@@ -25,16 +26,17 @@ function TuttiProductMobile(props: ProductsProps) {
 
     return (
         <div className="flex flex-col">
-            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${foto}`} alt={productName} className="w-[70%] mb-4 mx-auto relative" />
+            <img src={`${foto}`} alt={productName} className="w-[70%] mb-4 mx-auto relative" />
             <div className="flex gap-2 justify-center items-center">
-                {image?.map((item) => {
+                {image.map((item:ImageType) => {
+                    const { id, url } = item
                     return (
-                        <div className="flex gap-2" key={item.url}>
+                        <div className="flex gap-2" key={id}>
                             <img
-                                src={`${item.url}`}
+                                src={`${url}`}
                                 alt={productName}
                                 className="w-20 h-20 object-cover cursor-pointer"
-                                onClick={() => setFoto(item.url)}
+                                onClick={() => setFoto(url)}
                             />
                         </div>
                     )

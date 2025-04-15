@@ -1,4 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { ImageType } from "@/types/images"
 import { ProductType } from "@/types/ProductType"
 import { Caprasimo } from "next/font/google"
 import { useRouter } from "next/navigation"
@@ -27,11 +28,12 @@ export default function IllustrazioniPersonalizzate(props: ProductCardProps) {
                         <div key={id} className="cursor-pointer">
                             <Carousel className="mb-2">
                                 <CarouselContent>
-                                    {portada.map((i) => {
+                                    {portada.map((i:ImageType) => {
+                                        const { id, url } = i
                                         return(
-                                            <CarouselItem className="relative" key={i.url}>
+                                            <CarouselItem className="relative" key={id}>
                                                 <img 
-                                                src={`${i.url}`} 
+                                                src={`${url}`} 
                                                 alt={item.productName} className="aspect-square object-cover hover:scale-105 transition duration-700 ease-in-out border"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />

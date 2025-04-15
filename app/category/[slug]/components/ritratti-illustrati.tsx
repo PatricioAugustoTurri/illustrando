@@ -1,4 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { ImageType } from "@/types/images";
 import { ProductType } from "@/types/ProductType";
 import { Caprasimo } from "next/font/google";
 import { useRouter } from "next/navigation";
@@ -26,11 +27,12 @@ function RitrattiIllustrati(props: ProductCardProps) {
                         <div key={item.id} className="cursor-pointer">
                             <Carousel className="mb-2">
                                 <CarouselContent>
-                                    {portada?.map((itema) => {
+                                    {portada?.map((itema:ImageType) => {
+                                        const { id, url } = itema
                                         return(
-                                            <CarouselItem key={itema.url} className="relative">
+                                            <CarouselItem key={id} className="relative">
                                                 <img 
-                                                src={`${itema.url}`} 
+                                                src={`${url}`} 
                                                 alt={item.productName} className="w-full h-full object-cover hover:scale-105 transition duration-700 ease-in-out"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />
