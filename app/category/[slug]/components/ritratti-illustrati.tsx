@@ -27,12 +27,11 @@ function RitrattiIllustrati(props: ProductCardProps) {
                         <div key={item.id} className="cursor-pointer">
                             <Carousel className="mb-2">
                                 <CarouselContent>
-                                    {portada?.map((itema:ImageType) => {
-                                        const { id, url } = itema
+                                    {portada?.map((itema) => {
                                         return(
-                                            <CarouselItem key={id} className="relative">
+                                            <CarouselItem key={itema.url} className="relative">
                                                 <img 
-                                                src={`${url}`} 
+                                                src={`${itema.url}`} 
                                                 alt={item.productName} className="w-full h-full object-cover hover:scale-105 transition duration-700 ease-in-out"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />
