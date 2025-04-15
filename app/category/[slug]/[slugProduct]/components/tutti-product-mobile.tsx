@@ -29,7 +29,7 @@ function TuttiProductMobile(props: ProductsProps) {
             <div className="flex gap-2 justify-center items-center">
                 {image.map((item) => {
                     return (
-                        <div className="flex gap-2" key={item.id}>
+                        <div className="flex gap-2" key={item.url}>
                             <img
                                 src={`${item.url}`}
                                 alt={productName}
