@@ -7,7 +7,6 @@ import SelectRitrattoGruppo from "./select-ritratto-gruppo"
 import SelectIllustrazioneStandard from "./select-illustrazione-standard"
 import SelectRitrattoAbbraccio from "./select-ritratto-abbraccio"
 import SelectRitrattoStandard from "./select-ritratto-standard"
-import { ImageType } from "@/types/images"
 
 type ProductsProps = {
     product: ProductType
@@ -26,11 +25,10 @@ function TuttiProduct(props: ProductsProps) {
             <div className="flex">
                 <div className="w-1/2 overflow-y-scroll">
                     <div className="h-[100vh]">
-                        {product.image.map((item:ImageType) => {
-                            const { id, url } = item
+                        {product.image.map((item) => {
                             return (
-                                <div key={id} className="flex flex-col justify-start items-start p-1">
-                                    <img src={`${url}`} alt={product.productName} className="w-[90%] object-cover" />
+                                <div key={item.id} className="flex flex-col justify-start items-start p-1">
+                                    <img src={`${item.url}`} alt={product.productName} className="w-[90%] object-cover" />
                                 </div>
                             )
                         })}
