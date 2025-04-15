@@ -16,7 +16,6 @@ const caprasimo = Caprasimo({
 export default function IllustrazioniPersonalizzate(props: ProductCardProps) {
     const { product } = props
     const router = useRouter()
-    console.log(product)
 
     return (
         <div className={`${caprasimo.className} max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10`}>
@@ -34,7 +33,7 @@ export default function IllustrazioniPersonalizzate(props: ProductCardProps) {
                                             <CarouselItem className="relative" key={id}>
                                                 <img 
                                                 src={`${url}`} 
-                                                alt={item.productName} className="aspect-square object-cover hover:scale-105 transition duration-700 ease-in-out border"
+                                                alt={item.productName} className="w-full h-full object-cover hover:scale-105 transition duration-700 ease-in-out border"
                                                 onClick={()=>router.push(`/category/${item.category.slug}/${item.slug}`)}
                                                 />
                                             </CarouselItem>

@@ -10,7 +10,6 @@ function CategoryPage() {
     const { slug } = params
     const { result }: Response = useGetProductsCategory(slug as string)
 
-
     if (slug === "ritratto-illustrato") {
         return (
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

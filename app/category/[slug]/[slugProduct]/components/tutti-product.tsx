@@ -20,7 +20,6 @@ const ca = Caprasimo({
 
 function TuttiProduct(props: ProductsProps) {
     const { product } = props
-    console.log(product)
 
     return (
         <div className="flex flex-col py-10">

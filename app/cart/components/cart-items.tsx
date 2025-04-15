@@ -8,6 +8,7 @@ interface CartItemsProps {
 function CartItems (props: CartItemsProps) {
     const { product } = props
     const router = useRouter()
+    
     return (
         <li className="flex py-6 border-b">
             <div onClick={() => router.push(`/category/${product.category.slug}/${product.slug}`)}>
