@@ -1,5 +1,4 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ImageType } from "@/types/images";
 import { ProductType } from "@/types/ProductType";
 import { Caprasimo } from "next/font/google";
 import { useRouter } from "next/navigation";
